@@ -1,10 +1,13 @@
 package com.example.app.student;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Service //or @Component is equivalent
 public class StudentService {
 
     @GetMapping    //output from server
