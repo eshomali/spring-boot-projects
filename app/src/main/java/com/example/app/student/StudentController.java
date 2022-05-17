@@ -11,16 +11,15 @@ import java.util.List;
 @RequestMapping(path = "api/v1/student")    //create student api endpoint at localhost:8080/api/v1/student
 public class StudentController {
 
-    @GetMapping    //output from server
-    public List<Student> getStudents() {
-        return List.of(
-                new Student(
-                        1L,
-                        "Essa",
-                        "eshomali@gmail.com",
-                        LocalDate.of(1993, 01, 25),
-                        29
-                )
-        );
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
+
+    @GetMapping
+    public List<Student> getStudents() {
+        return studentService.getStudents();
+    }
+
 }
